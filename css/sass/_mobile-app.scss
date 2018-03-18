@@ -69,12 +69,14 @@ $footer-l-bg : #25509a;
                 margin-top: $space/2;
                 display: block;
                 max-width: 180px;
+                width: 100%;
             }
             @media (min-width:510px) and (max-width:992px){
                 max-width: 200px;
                 margin-right: 0;
                 margin-left: auto;
                 display: block;
+                width: 100%;
             }
         }
     }
