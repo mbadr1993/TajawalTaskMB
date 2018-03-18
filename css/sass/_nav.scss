@@ -1,0 +1,89 @@
+$black : #000;
+$white:#fff;
+$font-size : 40px;
+$space:50px;
+//the task colors
+$bink : #751b53;
+$bink2 : #b81c8c;
+$btn-t-bink : #c44ba2;
+$btn-b-bink :#af257d;
+$gary : #777777;
+$btn-t-blue :#01bbb5;
+$btn-b-blue : #04a5a0;
+$body-BG : #f2f2f2;
+$footer1-BG: #3a789e;
+$footer-r-bg :#2dc0ca;
+$footer-l-bg : #25509a;
+
+
+// transition and animation 
+@mixin transition($transition){
+    -webkit-transition: all $transition;
+    -moz-transition: all $transition;
+    -o-transition: all $transition;
+    -ms-transition: all $transition;
+    transition: all $transition;
+}
+
+.navbar{
+    background: rgba(0, 0, 0, 0.3);
+    @media (max-width: 992px){
+        background: rgba(0, 0, 0, 0.7);
+    }
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    .navbar-brand{
+        display: flex;
+        align-items: center;
+        img{
+            max-width: 150px;
+        }
+    }
+    .navbar-toggler{
+        border:0px;
+        outline:none;
+    }
+    .collapse {
+        @include transition(0.5s);
+        @media (max-width: 992px){
+            border-top:1px solid $white;
+            margin-top: $space/5;
+            @include transition(0.5s);
+        }
+        .navbar-nav{
+            .nav-item{
+                .nav-link{
+                    color: $white;
+                    i{
+                        &.flights-icon{
+                            content: url(../images/airplane.svg);
+                        }
+                        &.hotels-icon{
+                            content: url(../images/hotel-bed.svg)
+                        }
+                    }
+                    &.dropdown-toggle{
+                        &:after{
+                            content: url(../images/chevron.svg);
+                            border-top: 0;
+                            margin-left: 0;
+                            vertical-align: 0;
+                        }
+                    }
+                }
+                .dropdown-menu{
+                    top:115%;
+                    border-radius: 0;
+                    background: rgba(0, 0, 0, 0.5);
+                    .dropdown-item{
+                        color: $white;
+                        &:hover{
+                            background: $bink;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}

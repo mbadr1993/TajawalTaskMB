@@ -1,0 +1,31 @@
+$black : #000;
+$white:#fff;
+$font-size : 40px;
+$space:50px;
+//the task colors
+$bink : #751b53;
+$bink2 : #b81c8c;
+$btn-t-bink : #c44ba2;
+$btn-b-bink :#af257d;
+$gary : #777777;
+$btn-t-blue :#01bbb5;
+$btn-b-blue : #04a5a0;
+$body-BG : #f2f2f2;
+$footer1-BG: #3a789e;
+$footer-r-bg :#2dc0ca;
+$footer-l-bg : #25509a;
+
+
+body{
+    background: $body-BG;
+    overflow-x: hidden;
+}
+
+
+@import "sass/_nav";
+@import "sass/_main-banner";
+@import "sass/_hotel";
+@import "sass/_questions";
+@import "sass/_termsCondition";
+@import "sass/_mobile-app";
+@import "sass/_footer";

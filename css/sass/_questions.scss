@@ -1,0 +1,85 @@
+$black : #000;
+$white:#fff;
+$font-size : 40px;
+$space:50px;
+//the task colors
+$bink : #751b53;
+$bink2 : #b81c8c;
+$btn-t-bink : #c44ba2;
+$btn-b-bink :#af257d;
+$gary : #777777;
+$btn-t-blue :#01bbb5;
+$btn-b-blue : #04a5a0;
+$body-BG : #f2f2f2;
+$footer1-BG: #3a789e;
+$footer-r-bg :#2dc0ca;
+$footer-l-bg : #25509a;
+
+
+
+
+
+// transition and animation 
+@mixin transition($transition){
+    -webkit-transition: all $transition;
+    -moz-transition: all $transition;
+    -o-transition: all $transition;
+    -ms-transition: all $transition;
+    transition: all $transition;
+}
+
+// gra-border and animation 
+@mixin gra-background($dir,$color1,$color3){
+    -moz-background: -moz-linear-gradient($dir, $color1 0%, $color3 100%);
+    -webkit-background: -webkit-linear-gradient($dir, $color1 0%, $color3 100%);
+    background: linear-gradient(to $dir, $color1 0%, $color3 100%);
+}
+
+
+.questions{
+    background: $white;
+    padding: $space 0;
+    text-align: center;
+    h4{
+        color: $bink;
+        text-transform: uppercase;
+    }
+    p{
+        color: $gary;
+        font-weight: 600;
+    }
+    .info{
+        display: flex;
+        justify-content: center;
+        @media (max-width:568px){
+            flex-direction: column;
+        }
+        a{
+            margin: 0 $space/5;
+            display: flex;
+            align-items: center;
+            color: $gary;
+            font-weight: 600;
+            text-decoration: none;
+            @include transition(0.5s);
+            &:hover{
+                color: $bink2;
+                @include transition(0.5s);
+            }
+            @media (max-width:568px){
+                justify-content: center;
+                &:first-child{
+                    margin-bottom: $space/5;
+                }
+            }
+            .emil-icon{
+                content: url(../images/email-icon.svg);
+                margin-right: $space/10;
+            }
+            .phone-icon{
+                content: url(../images/phone-icon.svg);
+                margin-right: $space/10;
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+$black : #000;
+$white:#fff;
+$font-size : 40px;
+$space:50px;
+//the task colors
+$bink : #751b53;
+$bink2 : #b81c8c;
+$btn-t-bink : #c44ba2;
+$btn-b-bink :#af257d;
+$gary : #777777;
+$btn-t-blue :#01bbb5;
+$btn-b-blue : #04a5a0;
+$body-BG : #f2f2f2;
+$footer1-BG: #3a789e;
+$footer-r-bg :#2dc0ca;
+$footer-l-bg : #25509a;
+
+
+
+
+
+// transition and animation 
+@mixin transition($transition){
+    -webkit-transition: all $transition;
+    -moz-transition: all $transition;
+    -o-transition: all $transition;
+    -ms-transition: all $transition;
+    transition: all $transition;
+}
+
+// gra-border and animation 
+@mixin gra-background($dir,$color1,$color3){
+    -moz-background: -moz-linear-gradient($dir, $color1 0%, $color3 100%);
+    -webkit-background: -webkit-linear-gradient($dir, $color1 0%, $color3 100%);
+    background: linear-gradient(to $dir, $color1 0%, $color3 100%);
+}
+
+footer{
+    padding: $space;
+    padding-bottom: 0;
+    @include gra-background(right,$footer-r-bg ,$footer-l-bg );
+    .logo{
+        max-width: 65px;
+        @media (max-width:992px){
+            margin-bottom: $space/5;
+        }
+    }
+    div{
+        h5{
+            color: $footer-r-bg;
+            &::after{
+                content: "";
+                border-bottom:2px solid $footer-r-bg;
+                display: block;
+                margin-top: 15px;
+                width: 35px; 
+            }
+        }
+        ul{
+            padding: 0;
+            list-style: none;
+            li{
+                a{
+                    color: $white;
+                    @include transition(0.5s);
+                    &:hover{
+                        @include transition(0.5s);
+                        color: $bink;
+                        text-decoration: none;
+                    }
+                    i{
+                        width: 15px;
+                        text-align: center;
+                        margin-right: $space/5;
+                    }
+                }
+            }
+        }
+    }
+    .copy{
+        padding: $space/2 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        p{
+            padding-top: $space/5;
+            color: $white;
+            margin: 0;
+        }
+    }
+}

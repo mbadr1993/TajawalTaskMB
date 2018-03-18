@@ -1,0 +1,156 @@
+$black : #000;
+$white:#fff;
+$font-size : 40px;
+$space:50px;
+//the task colors
+$bink : #751b53;
+$bink2 : #b81c8c;
+$btn-t-bink : #c44ba2;
+$btn-b-bink :#af257d;
+$gary : #777777;
+$btn-t-blue :#01bbb5;
+$btn-b-blue : #04a5a0;
+$body-BG : #f2f2f2;
+$footer1-BG: #3a789e;
+$footer-r-bg :#2dc0ca;
+$footer-l-bg : #25509a;
+
+
+
+
+
+// transition and animation 
+@mixin transition($transition){
+    -webkit-transition: all $transition;
+    -moz-transition: all $transition;
+    -o-transition: all $transition;
+    -ms-transition: all $transition;
+    transition: all $transition;
+}
+
+// gra-border and animation 
+@mixin gra-background($dir,$color1,$color3){
+    -moz-background: -moz-linear-gradient($dir, $color1 0%, $color3 100%);
+    -webkit-background: -webkit-linear-gradient($dir, $color1 0%, $color3 100%);
+    background: linear-gradient(to $dir, $color1 0%, $color3 100%);
+}
+.main-banner{
+    height: 395px;
+    overflow: hidden;
+    background-image: url(../images/background.jpg);
+    background-position: center;
+    padding: $space;
+    background-size:cover; 
+    @media (max-width:992px){
+        height: auto;
+        padding: $space 0;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .banner-content{
+        padding-top: $space;
+        color: $white;
+        @media (max-width:992px){
+            padding-top:$space/2; 
+        }
+        h1{
+            text-align: center;
+            text-transform: uppercase;
+        }
+        p{
+            text-align: center;
+        }
+        form{
+            display: flex;
+            margin: auto;
+            background: rgba($color: #000000, $alpha: 0.3);
+            padding: $space/5;
+            border-radius: 5px;
+            margin-top: $space;
+            @media (max-width:992px){
+                flex-direction: column;
+            }
+            .form-group{
+                padding: 0 $space/10;
+                margin-bottom: 0;
+                position: relative;
+                flex: 1;
+                @media (max-width:992px) {
+                    padding: 0 ;
+                    margin-bottom: $space/5;
+                }
+                &:first-child{
+                    padding-left: 0;
+                }
+                .fa-map-marker-alt,.fa-user{    
+                    position: absolute;
+                    top: 0;
+                    left: 15px;
+                    bottom: 0;
+                    height: 15px;
+                    margin: auto;
+                    z-index: 9;
+                    color: #777777;
+                }
+                .form-control{
+                    padding-left: 30px;
+                    position: relative;
+                    height: 38px;
+                    line-height: 38px;
+                }
+                &.date{
+                    display: flex;
+                    @media(max-width:592px){
+                        flex-direction: column;
+                    }
+                    .form-control{
+                        &::before{
+                            position: absolute;
+                            top: 0;
+                            left: 10px;
+                            bottom: 0;
+                            height: 18px;
+                            margin: auto;
+                            line-height: 23px;
+                        }
+                        &:first-child{
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                            @media(max-width:592px){
+                                margin-bottom: $space/5;
+                                border-top-right-radius: 5px;
+                                border-bottom-right-radius: 5px;
+                            }
+                            &::before{
+                                content: url(../images/door-arrow-right-blue.svg);
+                            }
+                        }
+                        &:last-child{
+                            border-top-left-radius: 0;
+                            border-bottom-left-radius: 0;
+                            @media(max-width:592px){
+                                border-top-left-radius: 5px;
+                                border-bottom-left-radius: 5px;
+                            }
+                            &::before{
+                                content: url(../images/door-arrow-left-blue.svg);
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-primary{
+                @include gra-background(bottom,$btn-t-bink , $btn-b-bink);
+                border: 0;
+                @include transition(0.5s);
+                &:hover{
+                    @include gra-background(bottom,$btn-b-bink , $btn-t-bink);
+                    @include transition(0.5s);
+                }
+            }
+        }
+    }
+}
